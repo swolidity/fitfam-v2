@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import DocumentTitle from 'react-document-title'
 
-class Html extends React.Component {
+class App extends React.Component {
 
 
   render() {
@@ -13,4 +13,4 @@ class Html extends React.Component {
   }
 }
 
-export default Html
+export default App
