@@ -16,7 +16,7 @@ class Html extends React.Component {
 
   render() {
     return (
-      <html className="no-js" lang="">
+      <html>
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
