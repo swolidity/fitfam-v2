@@ -1,16 +1,17 @@
 import React from 'react'
-import { Toolbar, NavItem } from 'rebass'
-import { IndexLinkContainer } from 'react-router-bootstrap'
+import { IndexLink, Link } from 'react-router'
 
 require('./Nav.css')
 
 const Nav = () =>
-  <div className="Nav">
-    <Toolbar color="white">
-      <IndexLinkContainer to="/">
-        <NavItem><span className="brand">FITFAM</span></NavItem>
-      </IndexLinkContainer>
-    </Toolbar>
-  </div>
+  <nav className="Nav clearfix bg-white">
+    <div className="sm-col">
+      <IndexLink to="/" className="brand btn py2">FITFAM</IndexLink>
+    </div>
+
+    <div className="sm-col-right">
+      <Link to="#" className="btn py2">login</Link>
+    </div>
+  </nav>
 
 export default Nav

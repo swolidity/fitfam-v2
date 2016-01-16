@@ -47,7 +47,8 @@ module.exports = [
         require('postcss-cssnext')(),
         require('postcss-import')(),
         require('postcss-css-variables')(),
-        require('postcss-nested')()
+        require('postcss-nested')(),
+        require('postcss-custom-media')()
       ]
     },
     plugins: [
