@@ -1,3 +1,6 @@
+import webpack from 'webpack'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+
 module.exports = [
   {
     name: 'server',
@@ -21,7 +24,10 @@ module.exports = [
       loaders: [
         { test: /\.js?$/, exclude: /node_modules/, loaders: [ 'babel-loader' ] }
       ]
-    }
+    },
+    plugins: [
+      new webpack.NormalModuleReplacementPlugin(/\.css$/, 'node-noop')
+    ]
   },
   {
     name: 'client',
@@ -32,8 +38,19 @@ module.exports = [
     },
     module: {
       loaders: [
-        { test: /\.js?$/, exclude: /node_modules/, loaders: [ 'babel-loader' ] }
+        { test: /\.js?$/, exclude: /node_modules/, loaders: [ 'babel-loader' ] },
+        { test:   /\.css$/, loader: ExtractTextPlugin.extract('css-loader!postcss-loader', { publicPath: './build/public/' }) }
       ]
-    }
+    },
+    postcss: function () {
+      return [
+        require('postcss-cssnext')(),
+        require('postcss-import')(),
+        require('postcss-css-variables')()
+      ]
+    },
+    plugins: [
+      new ExtractTextPlugin('style.css', { allChunks: true })
+    ]
   }
 ]

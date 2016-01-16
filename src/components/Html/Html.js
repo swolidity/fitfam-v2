@@ -23,6 +23,7 @@ class Html extends React.Component {
         <title>{this.props.title}</title>
         <meta name="description" content={this.props.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link type="text/css" rel="stylesheet" href="/style.css" />
       </head>
       <body>
         <div id="app" dangerouslySetInnerHTML={{ __html: this.props.body }} />
