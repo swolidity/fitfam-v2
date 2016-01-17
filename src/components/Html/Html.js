@@ -26,9 +26,7 @@ class Html extends React.Component {
         <link type="text/css" rel="stylesheet" href="/style.css" />
       </head>
       <body>
-        <div className="react-wrapper">
-          <div id="app" dangerouslySetInnerHTML={{ __html: this.props.body }} />
-        </div>
+        <div id="app" dangerouslySetInnerHTML={{ __html: this.props.body }} />
         <script src={this.props.entry}></script>
       </body>
       </html>
