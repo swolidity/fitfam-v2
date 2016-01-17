@@ -28,7 +28,7 @@ server.get('*', (req, res) => {
       data.body = ReactDOM.renderToString(<RoutingContext {...renderProps} />)
 
       const html = ReactDOM.renderToStaticMarkup(<Html {...data} />)
-      res.send('<!doctype html>\n' + html)
+      res.send('<!DOCTYPE html>\n' + html)
     }
   })
 })
