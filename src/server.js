@@ -6,6 +6,9 @@ import { match, RoutingContext } from 'react-router'
 import routes from './routes'
 import Html from './components/Html'
 import path from 'path'
+import { Provider } from 'react-redux'
+import store from './store'
+
 
 const server = express()
 const port = process.env.PORT || 5000
@@ -25,7 +28,11 @@ server.get('*', (req, res) => {
         title: 'Fitfam',
         entry: '/client.js'
       }
-      data.body = ReactDOM.renderToString(<RoutingContext {...renderProps} />)
+      data.body = ReactDOM.renderToString(
+        <Provider store={store()}>
+          <RoutingContext {...renderProps} />
+        </Provider>
+      )
 
       const html = ReactDOM.renderToStaticMarkup(<Html {...data} />)
       res.send('<!DOCTYPE html>\n' + html)
