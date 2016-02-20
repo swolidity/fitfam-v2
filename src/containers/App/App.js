@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import DocumentTitle from 'react-document-title'
-import Nav from '../../components/Nav'
+import Navbar from '../../components/Navbar'
 
 require('./App.css')
 
@@ -11,7 +11,8 @@ class App extends React.Component {
     return (
       <DocumentTitle title="Fitfam">
         <div className="App">
-          <Nav />
+          <Navbar />
+          {this.props.children}
         </div>
       </DocumentTitle>
     )
@@ -20,6 +21,7 @@ class App extends React.Component {
 
 App.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string
 }
 

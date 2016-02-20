@@ -4,12 +4,14 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <input type="text" ref="username" placeholder="username" />
-        <input type="password" ref="password" placeholder="password" />
-        <button onClick={this._handleClick}>
-          Login
-        </button>
+      <div className="clearfix">
+        <div className="col-4 mx-auto">
+          <input type="text" ref="username" placeholder="username" className="col-12 block mb1 field"/>
+          <input type="password" ref="password" placeholder="password" className="col-12 block mb1 field" />
+          <button className="btn btn-primary" onClick={this._handleClick}>
+            Login
+          </button>
+        </div>
       </div>
     )
   }
@@ -23,7 +25,7 @@ class Login extends Component {
     }
 
     this.props.onLoginClick(creds)
-  }
+  };
 
 }
 

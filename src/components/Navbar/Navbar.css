@@ -1,8 +1,8 @@
-.Nav {
+.Navbar {
   .brand {
     color: #0d6cff;
     font-family: 'Roboto', sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: 2px;
   }
 }
