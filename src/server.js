@@ -8,14 +8,28 @@ import Html from './components/Html'
 import path from 'path'
 import { Provider } from 'react-redux'
 import store from './store'
+import mongoose from 'mongoose'
+import bodyParser from 'body-parser'
+import morgan from 'morgan'
 
+require('dotenv').config()
+
+mongoose.connect(process.env.MONGO_URI)
 
 const server = express()
 const port = process.env.PORT || 5000
 
 server.use(compression())
+server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, 'public')))
 server.set('port', port)
+
+if (process.env.NODE_ENV !== 'production') {
+  server.use(morgan('dev'))
+}
+
+// connect API middleware
+server.use('/api', require('./api/index.js'))
 
 server.get('*', (req, res) => {
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
